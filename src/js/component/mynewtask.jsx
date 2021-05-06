@@ -15,7 +15,7 @@ const MyNewTask = () => {
 		setListOfTasks(
 			arrayTasks.map((item, index) => {
 				return (
-					<div key={index}>
+					<div key={index.toString()}>
 						{item}
 						<button
 							onClick={() => {
@@ -39,6 +39,7 @@ const MyNewTask = () => {
 				onKeyDown={event => {
 					if (event.key === "Enter") {
 						setVariableTask(event.target.value);
+						event.target.value = "";
 					}
 				}}
 			/>
