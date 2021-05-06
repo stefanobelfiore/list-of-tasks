@@ -1,8 +1,9 @@
 import React, { useState, Fragment, useEffect } from "react";
-import PrintNewTask from "./printnewtask.jsx";
+// import PrintNewTask from "./printnewtask.jsx";
 const MyNewTask = () => {
 	const [variableTask, setVariableTask] = useState("");
 	const [arrayTasks, setArrayTasks] = useState([]);
+
 	const [listOfTasks, setListOfTasks] = useState(null);
 
 	useEffect(() => {
@@ -13,7 +14,18 @@ const MyNewTask = () => {
 	useEffect(() => {
 		setListOfTasks(
 			arrayTasks.map((item, index) => {
-				return <PrintNewTask key={index.toString()} newTask={item} />;
+				return (
+					<div key={index}>
+						{item}
+						<button
+							onClick={() => {
+								arrayTasks.splice(index, 1);
+								console.log(index);
+							}}>
+							X
+						</button>
+					</div>
+				);
 			})
 		);
 		console.log(listOfTasks);
@@ -30,10 +42,10 @@ const MyNewTask = () => {
 					}
 				}}
 			/>
-			{listOfTasks}
 			<footer>
-				<span>{arrayTasks.length} total </span>
+				<span>the total is {arrayTasks.length} </span>
 			</footer>
+			{listOfTasks}
 		</Fragment>
 	);
 };
