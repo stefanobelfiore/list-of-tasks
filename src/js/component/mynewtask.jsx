@@ -6,7 +6,7 @@ const MyNewTask = () => {
 	const [listOfTasks, setListOfTasks] = useState(null);
 
 	useEffect(() => {
-		setArrayTasks([...arrayTasks, variableTask]);
+		if (variableTask != "") setArrayTasks([...arrayTasks, variableTask]);
 	}, [variableTask]);
 	// console.log(arrayTasks);
 
@@ -31,7 +31,9 @@ const MyNewTask = () => {
 				}}
 			/>
 			{listOfTasks}
-			<span>{arrayTasks.lenght}</span>
+			<footer>
+				<span>{arrayTasks.length} total </span>
+			</footer>
 		</Fragment>
 	);
 };

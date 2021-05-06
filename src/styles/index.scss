@@ -1,3 +1,18 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+body{
+    background-image: url("https://thumbs.dreamstime.com/z/overloaded-tasks-girl-child-exhausted-book-roof-head-white-background-schoolgirl-tired-reading-studying-overloaded-124370845.jpg");
+}
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+button{
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: purple;
+    color:yellowgreen;
 
+}
+button:hover{
+    background-color: red;
+}
