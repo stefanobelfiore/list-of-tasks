@@ -1,16 +1,18 @@
 import React, { useState, Fragment, useEffect } from "react";
 // import PrintNewTask from "./printnewtask.jsx";
 const MyNewTask = () => {
+	//------------ variable del string que se recoge del con evento enter-------------------
 	const [variableTask, setVariableTask] = useState("");
+	//------------ variable del array que se crea con setVariableTask-------------------
 	const [arrayTasks, setArrayTasks] = useState([]);
-
+	//------------ variable con los divs y button que se crea con su función (setListOfTasks) y map-------------------
 	const [listOfTasks, setListOfTasks] = useState(null);
-
+	//------------ imprimo los string en el array añadendo alla copia anterior sin editarlo del todo gracias a "spread"-------------------
 	useEffect(() => {
 		if (variableTask != "") setArrayTasks([...arrayTasks, variableTask]);
 	}, [variableTask]);
 	// console.log(arrayTasks);
-
+	//------------ creo los divs y button por cada elemento mapeando el la variable (linea 7) que contiene el array de tasks -------------------
 	useEffect(() => {
 		setListOfTasks(
 			arrayTasks.map((item, index) => {
@@ -30,7 +32,7 @@ const MyNewTask = () => {
 		);
 		console.log(listOfTasks);
 	}, [arrayTasks]);
-
+	//------------ devuelvo input, el counter y los divs con button por cada string que recoge-------------------
 	return (
 		<Fragment>
 			<input
