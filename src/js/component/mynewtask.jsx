@@ -8,6 +8,10 @@ const MyNewTask = () => {
 	//------------ variable con los divs y button que se crea con su función (setListOfTasks) y map-------------------
 	const [listOfTasks, setListOfTasks] = useState(null);
 	//------------ imprimo los string en el array añadendo alla copia anterior sin editarlo del todo gracias a "spread"-------------------
+	const DELETE = indexToDelete => {
+		setArrayTasks(arrayTasks.filter((_, index) => index !== indexToDelete));
+	};
+
 	useEffect(() => {
 		if (variableTask != "") setArrayTasks([...arrayTasks, variableTask]);
 	}, [variableTask]);
@@ -21,8 +25,7 @@ const MyNewTask = () => {
 						{item}
 						<button
 							onClick={() => {
-								arrayTasks.splice(index, 1);
-								console.log(index);
+								DELETE(index);
 							}}>
 							X
 						</button>
